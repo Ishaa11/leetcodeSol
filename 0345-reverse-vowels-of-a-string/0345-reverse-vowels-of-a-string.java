@@ -1,35 +1,24 @@
 class Solution {
     public String reverseVowels(String s) {
-        String str = "";
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder str = new StringBuilder();
         
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='a' || s.charAt(i)=='e' || s.charAt(i)=='i' || s.charAt(i)=='o' || s.charAt(i)=='u' || s.charAt(i)=='A' || s.charAt(i)=='E' || s.charAt(i)=='I' || s.charAt(i)=='O' || s.charAt(i)=='U'){
-                str=str+s.charAt(i);
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i)=='a' || sb.charAt(i)=='e' || sb.charAt(i)=='i' || sb.charAt(i)=='o' || sb.charAt(i)=='u' || sb.charAt(i)=='A' || sb.charAt(i)=='E' || sb.charAt(i)=='I' || sb.charAt(i)=='O' || sb.charAt(i)=='U'){
+               str.append(sb.charAt(i));
             }
         }
         
-        char[] arr = s.toCharArray();
-        char[] vow = str.toCharArray();
+        str.reverse();
         
-        reverse(vow);
-        
-        for(int i=0,j=0;i<arr.length && j<vow.length;i++){
-            if(arr[i]=='a' || arr[i]=='e' || arr[i]=='i' || arr[i]=='o' || arr[i]=='u' || arr[i]=='A' || arr[i]=='E' || arr[i]=='I' || arr[i]=='O' || arr[i]=='U'){
-                arr[i]=vow[j];
+        for(int i=0,j=0;i<sb.length() && j<str.length();i++){
+            if(sb.charAt(i)=='a' || sb.charAt(i)=='e' || sb.charAt(i)=='i' || sb.charAt(i)=='o' || sb.charAt(i)=='u' || sb.charAt(i)=='A' || sb.charAt(i)=='E' || sb.charAt(i)=='I' || sb.charAt(i)=='O' || sb.charAt(i)=='U'){
+                sb.setCharAt(i,str.charAt(j));
                 j++;
             }
         }
-        String string = new String(arr);
-        return string;
+        
+        return sb.toString();
     }
-    
-    public void reverse(char a[])
-    {
-        int n=a.length;
-        for (int i = 0; i < n / 2; i++) {
-           char t = a[i];
-            a[i] = a[n - i - 1];
-            a[n - i - 1] = t;
-        }
-    } 
+   
 }
