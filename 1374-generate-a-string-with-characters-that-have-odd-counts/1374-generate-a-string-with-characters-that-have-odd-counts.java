@@ -1,6 +1,6 @@
 class Solution {
     public String generateTheString(int n) {
-        String s = new String();
+        String s = "";
         if(n%2!=0){//odd
             for(int i=0;i<n;i++){
                 s=s+'a';
