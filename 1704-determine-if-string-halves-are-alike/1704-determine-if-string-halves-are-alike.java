@@ -1,6 +1,6 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-        int len = s.length(),count1=0,count2=0;
+        int len = s.length(),count=0;
         String a = s.substring(0,len/2);
         String b = s.substring(len/2);
         
@@ -19,17 +19,17 @@ class Solution {
         for(int i=0;i<len/2;i++){
             char z = a.charAt(i);
             if(map.containsKey(z)){
-                count1++;
+                count++;
             }
         }
         
         for(int i=0;i<len/2;i++){
             char y = b.charAt(i);
             if(map.containsKey(y)){
-                count2++;
+                count--;
             }
         }
         
-        return count1==count2;
+        return count==0;
     }
 }
