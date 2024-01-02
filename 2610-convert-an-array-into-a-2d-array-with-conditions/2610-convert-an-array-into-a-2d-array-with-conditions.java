@@ -13,8 +13,20 @@ class Solution {
             }
         }
         
+        int maxFreq = 0, maxEle = 0;
+        
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int count = entry.getValue();
+            int element = entry.getKey();
+
+            if (count > maxFreq) {
+                maxEle = element;
+                maxFreq = count;
+            }
+        }
+        
        
-        int loop = Frequency(nums);
+        int loop = maxFreq;
         
         for(int i=0;i<loop;i++){
             ArrayList<Integer> list1 = new ArrayList<>();
@@ -34,30 +46,5 @@ class Solution {
         return list;
     }
     
-    static int Frequency(int arr[]) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int n=arr.length;
-        
-        for (int i = 0; i < n; i++) {
-            if (map.containsKey(arr[i])) {
-                map.put(arr[i], map.get(arr[i]) + 1);
-            } else {
-                map.put(arr[i], 1);
-            }
-        }
-
-        int maxFreq = 0, maxEle = 0;
-        
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int count = entry.getValue();
-            int element = entry.getKey();
-
-            if (count > maxFreq) {
-                maxEle = element;
-                maxFreq = count;
-            }
-        }
-        
-        return maxFreq;
-    }
+   
 }
